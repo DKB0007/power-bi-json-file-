@@ -1,0 +1,260 @@
+{
+    "DataimportManager": {
+      "tables": [
+        {
+          "ID": "T1",
+          "name": "Grade",
+          "columns": [
+            "Parental status",
+            "Student ID",
+            "Number of siblings",
+            "Mother's occupation",
+            "Father's occupation",
+            "Weekly study hours",
+            "Reading frequency",
+            "Attendance to the seminars",
+            "Impact of your projects/activities on your success",
+            "Attendance to classes",
+            "Preparation to midterm exams 1",
+            "Preparation to midterm exams 2",
+            "Taking notes in classes",
+            "Listening in classes",
+            "Flip-classroom",
+            "Cumulative grade last semester",
+            "COURSE ID"
+          ]
+        },
+        {
+          "ID": "T2",
+          "name": "Student_Performance",
+          "columns": [
+            "Student ID",
+            "Student Age",
+            "Gender",
+            "Graduated high-school type",
+            "Scholarship Percent",
+            "Additional work",
+            "Sports activity",
+            "Do you have a partner",
+            "Total salary if available USD",
+            "Transportation to the university",
+            "Accommodation type in Cyprus",
+            "Mother's education",
+            "Father's education"
+          ]
+        }
+      ]
+    },
+    "DataTransformationSteps": [
+      {
+        "ID": "T3",
+        "Description": "Rename Tables",
+        "RenamedTables": [
+          {
+            "OldName": "Student_Performance",
+            "NewName": "prateek_class"
+          }
+        ]
+      },
+      {
+        "ID": "T4",
+        "Description": "Rename Columns",
+        "RenamedColumns": {
+          "prateek_class": [
+            {
+              "OldName": "Do you have a partner",
+              "NewName": "Prateek_partner"
+            }
+          ]
+        }
+      },
+      {
+        "ID": "T5",
+        "Description": "Create Custom Column",
+        "TableName": "prateek_class",
+        "NewColumn": {
+          "Name": "Prateek_division",
+          "Expression": "try [Total salary if available USD]/[Scholarship Percent] otherwise null"
+        }
+      },
+      {
+        "ID": "T6",
+        "Description": "Change Data Type",
+        "TableName": "prateek_class",
+        "ColumnName": "Prateek_division",
+        "DataType": "Whole Number.Type",
+        "NewDataType": "Fixed Decimal.Type"
+      }
+    ],
+    "dataTransformationManager": {
+      "ID": "T7",
+      "Description": "Create Relationship",
+      "Relationship": {
+        "Name": "AutoDetected_f857a09b-805e-42d7-a061-550c65cf1ee6",
+        "Cardinality": "one",
+        "FromTable": "prateek_class",
+        "FromColumn": "Student ID",
+        "ToTable": "Grade",
+        "ToColumn": "Student ID",
+        "JoinOnDateBehavior": "bothDirections"
+      }
+    },
+    "chartManager": [
+      {
+        "ID": "T8",
+        "SectionName": "ReportSection",
+        "PageName": "11",
+        "Chart": {
+          "ChartID": "N/A",
+          "Type": "card",
+          "Height": 384,
+          "Width": 384,
+          "X": 96,
+          "Y": 208,
+          "Title": "this is card title 11",
+          "Aggregations": "prateek_class.Student Age",
+          "ColorDetails": {},
+          "Fonts": {
+            "fontSize": "27pt",
+            "fontColor": {
+              "expr": {
+                "ThemeDataColor": {
+                  "ColorId": 6,
+                  "Percent": 0.2
+                }
+              }
+            }
+          },
+          "Filters": []
+        }
+      },
+      {
+        "ID": "T9",
+        "SectionName": "ReportSection",
+        "PageName": "11",
+        "Chart": {
+          "ChartID": "N/A",
+          "Type": "clusteredBarChart",
+          "Height": 384,
+          "Width": 384,
+          "X": 528,
+          "Y": 208,
+          "Title": "this is chart title 11",
+          "Aggregations": "prateek_class.Graduated high-school type, Sum(prateek_class.Scholarship Percent)",
+          "ColorDetails": {},
+          "Fonts": {
+            "fontSize": "19pt"
+          },
+          "Filters": []
+        }
+      },
+      {
+        "ID": "T10",
+        "SectionName": "a9e726cd535a4a6f1057",
+        "PageName": "22",
+        "Chart": {
+          "ChartID": "N/A",
+          "Type": "donutChart",
+          "Height": 480,
+          "Width": 512,
+          "X": 128,
+          "Y": 192,
+          "Title": "this is title of the chart 22",
+          "Aggregations": "prateek_class.Mother's education, Sum(prateek_class.Total salary if available USD)",
+          "ColorDetails": {},
+          "Fonts": {
+            "fontSize": "39pt"
+          },
+          "Filters": []
+        }
+      },
+      {
+        "ID": "T11",
+        "SectionName": "a9e726cd535a4a6f1057",
+        "PageName": "22",
+        "Chart": {
+          "ChartID": "N/A",
+          "Type": "pieChart",
+          "Height": 480,
+          "Width": 528,
+          "X": 704,
+          "Y": 192,
+          "Title": "this is chart title 22",
+          "Aggregations": "Sum(Grade.Weekly study hours), Grade.Impact of your projects/activities on your success",
+          "ColorDetails": {},
+          "Fonts": {
+            "fontSize": "27pt"
+          },
+          "Filters": []
+        }
+      }
+    ],
+    "textboxManager": {
+      "textboxes": [
+        {
+          "ID": "T12",
+          "PageName": "11",
+          "title": "title of the sheet using teaxtbox",
+          "x": 96,
+          "y": 32,
+          "h": 96,
+          "w": 720,
+          "font": "N/A",
+          "fontSize": "32pt",
+          "fontWeight": "bold",
+          "fontStyle": "italic",
+          "fontColor": null,
+          "backgroundColor": null,
+          "alignment": "N/A",
+          "textDecoration": "underline"
+        },
+        {
+          "ID": "T13",
+          "PageName": "22",
+          "title": "this is second textbox in sheet 22",
+          "x": 304,
+          "y": 32,
+          "h": 64,
+          "w": 784,
+          "font": "N/A",
+          "fontSize": "20pt",
+          "fontWeight": "bold",
+          "fontStyle": "italic",
+          "fontColor": null,
+          "backgroundColor": null,
+          "alignment": "center",
+          "textDecoration": "underline"
+        }
+      ]
+    },
+    "slicerManager": {
+      "slicers": [
+        {
+          "ID": "T14",
+          "sectionName": "ReportSection",
+          "PageName": "11",
+          "slicerID": "N/A",
+          "visualType": "slicer",
+          "orientation": "Dropdown",
+          "height": 80,
+          "width": 304,
+          "x": 128,
+          "y": 624,
+          "title": "slicer title 11"
+        },
+        {
+          "ID": "T15",
+          "sectionName": "a9e726cd535a4a6f1057",
+          "PageName": "22",
+          "slicerID": "N/A",
+          "visualType": "slicer",
+          "orientation": "Basic",
+          "height": 560,
+          "width": 112,
+          "x": 0,
+          "y": 80,
+          "title": "slicer 22"
+        }
+      ]
+    }
+  }
