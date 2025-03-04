@@ -1,0 +1,89 @@
+{
+    "chartManager": {
+      "T8": {
+        "SectionName": "ReportSection",
+        "DisplayName": "11",
+        "Chart": {
+          "ChartID": "N/A",
+          "Type": "card",
+          "Height": 384,
+          "Width": 384,
+          "X": 96,
+          "Y": 208,
+          "Title": "this is card title 11",
+          "Aggregations": "prateek_class.avg age",
+          "ColorDetails": {},
+          "Fonts": {
+            "fontSize": "27D",
+            "fontColor": {
+              "expr": {
+                "ThemeDataColor": {
+                  "ColorId": 6,
+                  "Percent": 0.2
+                }
+              }
+            }
+          },
+          "Filters": []
+        }
+      },
+      "T9": {
+        "SectionName": "ReportSection",
+        "DisplayName": "11",
+        "Chart": {
+          "ChartID": "N/A",
+          "Type": "clusteredBarChart",
+          "Height": 384,
+          "Width": 384,
+          "X": 528,
+          "Y": 208,
+          "Title": "this is chart title 11",
+          "Aggregations": "prateek_class.Graduated high-school type, Sum(prateek_class.Scholarship Percent)",
+          "ColorDetails": {},
+          "Fonts": {
+            "fontSize": "19D"
+          },
+          "Filters": []
+        }
+      },
+      "T10": {
+        "SectionName": "a9e726cd535a4a6f1057",
+        "DisplayName": "22",
+        "Chart": {
+          "ChartID": "N/A",
+          "Type": "donutChart",
+          "Height": 480,
+          "Width": 512,
+          "X": 128,
+          "Y": 192,
+          "Title": "this is title of the chart 22",
+          "Aggregations": "prateek_class.Mother's education, Sum(prateek_class.Total salary if available USD)",
+          "ColorDetails": {},
+          "Fonts": {
+            "fontSize": "39D"
+          },
+          "Filters": []
+        }
+      },
+      "T11": {
+        "SectionName": "a9e726cd535a4a6f1057",
+        "DisplayName": "22",
+        "Chart": {
+          "ChartID": "N/A",
+          "Type": "pieChart",
+          "Height": 480,
+          "Width": 528,
+          "X": 704,
+          "Y": 192,
+          "Title": "this is chart title 22",
+          "Aggregations": "Sum(Grade.Weekly study hours), Grade.Impact of your projects/activities on your success",
+          "ColorDetails": {},
+          "Fonts": {
+            "fontSize": "27D"
+          },
+          "Filters": []
+        }
+      }
+    }
+  }
+  

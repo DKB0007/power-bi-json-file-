@@ -1,0 +1,31 @@
+{
+    "slicerManager": {
+      "slicers": {
+        "T14": {
+          "sectionName": "ReportSection",
+          "displayName": "11",
+          "slicerID": "N/A",
+          "visualType": "slicer",
+          "orientation": "Dropdown",
+          "height": 80,
+          "width": 304,
+          "x": 128,
+          "y": 624,
+          "title": "slicer title 11"
+        },
+        "T15": {
+          "sectionName": "a9e726cd535a4a6f1057",
+          "displayName": "22",
+          "slicerID": "N/A",
+          "visualType": "slicer",
+          "orientation": "Basic",
+          "height": 560,
+          "width": 112,
+          "x": 0,
+          "y": 80,
+          "title": "slicer 22"
+        }
+      }
+    }
+  }
+  

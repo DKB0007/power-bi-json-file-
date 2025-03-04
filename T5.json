@@ -1,0 +1,39 @@
+{
+    "textboxManager": {
+      "textboxes": {
+        "T12": {
+          "Display name": "11",
+          "title": "title of the sheet using teaxtbox",
+          "x": 96,
+          "y": 32,
+          "h": 96,
+          "w": 720,
+          "font": "N/A",
+          "fontSize": "32pt",
+          "fontWeight": "bold",
+          "fontStyle": "italic",
+          "fontColor": null,
+          "backgroundColor": null,
+          "alignment": "N/A",
+          "textDecoration": "underline"
+        },
+        "T13": {
+          "Display name": "22",
+          "title": "this is second textbox in sheet 22",
+          "x": 304,
+          "y": 32,
+          "h": 64,
+          "w": 784,
+          "font": "N/A",
+          "fontSize": "20pt",
+          "fontWeight": "bold",
+          "fontStyle": "italic",
+          "fontColor": null,
+          "backgroundColor": null,
+          "alignment": "center",
+          "textDecoration": "underline"
+        }
+      }
+    }
+  }
+  

@@ -1,0 +1,43 @@
+{
+    "DataTransformationSteps": {
+      "T3": {
+        "Description": "Rename Tables",
+        "RenamedTables": [
+          {
+            "OldName": "Student_Performance",
+            "NewName": "prateek_class"
+          }
+        ]
+      },
+      "T4": {
+        "Description": "Rename Columns",
+        "RenamedColumns": {
+          "prateek_class": [
+            {
+              "OldName": "Do you have a partner",
+              "NewName": "Prateek_partner"
+            },
+            {
+              "OldName": "Total salary if available USD",
+              "NewName": "Total_salary_USD"
+            }
+          ]
+        }
+      },
+      "T5": {
+        "Description": "Create Custom Column",
+        "TableName": "prateek_class",
+        "NewColumn": {
+          "Name": "Prateek_division",
+          "Expression": "try [Total_salary_USD]/[Scholarship Percent] otherwise null"
+        }
+      },
+      "T6": {
+        "Description": "Change Data Type",
+        "TableName": "prateek_class",
+        "ColumnName": "Prateek_division",
+        "DataType": "Whole Number.Type", 
+        "NewDataType": " Fixed Decimal.Type"
+      }
+    }
+  }

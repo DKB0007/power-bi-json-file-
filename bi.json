@@ -1,0 +1,236 @@
+Master file: C:\Users\DON\source\repos\PowerBiMasterData\PowerBiMasterData\PBI_Pratik_Master\DataModelSchema
+
+--- Master Data ---
+
+Table: Grade
+  - Column: Parental status
+  - Column: Student ID
+  - Column: Number of siblings
+  - Column: Mother's occupation
+  - Column: Father's occupation
+  - Column: Weekly study hours
+  - Column: Reading frequency
+  - Column: Attendance to the seminars
+  - Column: Impact of your projects/activities on your success
+  - Column: Attendance to classes
+  - Column: Preparation to midterm exams 1
+  - Column: Preparation to midterm exams 2
+  - Column: Taking notes in classes
+  - Column: Listening in classes
+  - Column: Flip-classroom
+  - Column: Cumulative grade last semester
+  - Column: COURSE ID
+
+Table: prateek_class
+  - Column: Student ID
+  - Column: Student Age
+  - Column: Gender
+  - Column: Graduated high-school type
+  - Column: Scholarship Percent
+  - Column: Additional work
+  - Column: Sports activity
+  - Column: prateek partner
+  - Column: Total salary if available USD
+  - Column: Transportation to the university
+  - Column: Accommodation type in Cyprus
+  - Column: Mother's education
+  - Column: Father's education
+  - Column: prateek_division
+
+
+Data extraction complete.
+Master file: C:\Users\DON\source\repos\PowerBiMasterData\PowerBiMasterData\PBI_Pratik_Master\DataModelSchema
+
+--- Master Data ---
+
+Table: Grade
+  Columns:
+    - Parental status (DataType: string)
+    - Student ID (DataType: string)
+    - Number of siblings (DataType: string)
+    - Mother's occupation (DataType: string)
+    - Father's occupation (DataType: string)
+    - Weekly study hours (DataType: int64)
+    - Reading frequency (DataType: string)
+    - Attendance to the seminars (DataType: string)
+    - Impact of your projects/activities on your success (DataType: string)
+    - Attendance to classes (DataType: string)
+    - Preparation to midterm exams 1 (DataType: string)
+    - Preparation to midterm exams 2 (DataType: string)
+    - Taking notes in classes (DataType: string)
+    - Listening in classes (DataType: string)
+    - Flip-classroom (DataType: string)
+    - Cumulative grade last semester  (DataType: string)
+    - COURSE ID (DataType: string)
+  Partitions:
+    - Grade (Mode: import, SourceType: m)
+      Source: Excel.Workbook(File.Contents("C:\Users\sanka\Downloads\Grade.xlsx")
+      Grade_Sheet: Source{[Item="Grade"
+      Promoted Headers: Table.PromoteHeaders(Grade_Sheet
+      Filtered Rows: Table.SelectRows(#"Promoted Headers"
+      Changed Type: Table.TransformColumnTypes(#"Filtered Rows"
+
+Table: prateek_class
+  Columns:
+    - Student ID (DataType: string)
+    - Student Age (DataType: int64)
+    - Gender (DataType: string)
+    - Graduated high-school type (DataType: string)
+    - Scholarship Percent (DataType: int64)
+    - Additional work (DataType: string)
+    - Sports activity (DataType: string)
+    - prateek partner (DataType: string)
+    - Total salary if available USD (DataType: int64)
+    - Transportation to the university (DataType: string)
+    - Accommodation type in Cyprus (DataType: string)
+    - Mother's education (DataType: string)
+    - Father's education  (DataType: string)
+    - prateek_division (DataType: decimal)
+  Partitions:
+    - prateek_class (Mode: import, SourceType: m)
+      Source: Excel.Workbook(File.Contents("C:\Users\sanka\Downloads\Students_Performance.xlsx")
+      Grade_Sheet: N/A
+      Promoted Headers: Table.PromoteHeaders(Students_Performance_Sheet
+      Filtered Rows: N/A
+      Changed Type: Table.TransformColumnTypes(#"Promoted Headers"
+
+
+Data extraction complete.
+
+--- Task 3: Relationship Details ---
+
+  Name: AutoDetected_f857a09b-805e-42d7-a061-550c65cf1ee6
+  Cardinality: one
+  From Table: prateek_class
+  From Column: Student ID
+  To Table: Grade
+  To Column: Student ID
+  Join On Date Behavior: bothDirections
+----------------------------------------
+Layout file extracted: C:\Users\DON\source\repos\PowerBiMasterData\PowerBiMasterData\bin\Debug\net8.0\extracted_pbix1\Report/Layout
+Report Title: No Title
+
+Section Name: ReportSection
+Display Name: 11
+
+  Chart ID: N/A
+  Type: card
+  Height: 384
+  Width: 384
+  X: 96
+  Y: 208
+  Title: 'this is card title 11'
+  Aggregations: prateek_class.avg age
+  Color Details:
+  Fonts: fontSize:27D, fontColor:{"expr":{"ThemeDataColor":{"ColorId":6,"Percent":0.2}}}
+  Filters: "[]"
+  ---
+
+  Chart ID: N/A
+  Type: clusteredBarChart
+  Height: 384
+  Width: 384
+  X: 528
+  Y: 208
+  Title: 'this is chart title 11'
+  Aggregations: prateek_class.Graduated high-school type, Sum(prateek_class.Scholarship Percent)
+  Color Details:
+  Fonts: fontSize:19D
+  Filters: "[]"
+  ---
+
+Section Name: a9e726cd535a4a6f1057
+Display Name: 22
+
+  Chart ID: N/A
+  Type: donutChart
+  Height: 480
+  Width: 512
+  X: 128
+  Y: 192
+  Title: 'this is title of the chart 22'
+  Aggregations: prateek_class.Mother's education, Sum(prateek_class.Total salary if available USD)
+  Color Details:
+  Fonts: fontSize:39D
+  Filters: "[]"
+  ---
+
+  Chart ID: N/A
+  Type: pieChart
+  Height: 480
+  Width: 528
+  X: 704
+  Y: 192
+  Title: 'this is chart title 22'
+  Aggregations: Sum(Grade.Weekly study hours), Grade.Impact of your projects/activities on your success
+  Color Details:
+  Fonts: fontSize:27D
+  Filters: "[]"
+  ---
+Layout file extracted: C:\Users\DON\source\repos\PowerBiMasterData\PowerBiMasterData\bin\Debug\net8.0\extracted_pbix1\Report/Layout
+Report Title: No Title
+
+Section Name: ReportSection
+Display Name: 11
+
+  Textbox ID: N/A
+  Visual Type: textbox
+  Height: 96
+  Width: 720
+  X: 96
+  Y: 32
+  Content: title of the sheet using teaxtbox
+  Font Weight: bold
+  Font Style: italic
+  Font Size: 32pt
+  Text Decoration: underline
+  ---
+
+Section Name: a9e726cd535a4a6f1057
+Display Name: 22
+
+  Textbox ID: N/A
+  Visual Type: textbox
+  Height: 64
+  Width: 784
+  X: 304
+  Y: 32
+  Content: this is second textbox in sheet 22
+  Font Weight: bold
+  Font Style: italic
+  Font Size: 20pt
+  Text Decoration: underline
+  ---
+Layout file extracted: C:\Users\DON\source\repos\PowerBiMasterData\PowerBiMasterData\bin\Debug\net8.0\extracted_pbix1\Report/Layout
+Report Title: No Title
+
+Section Name: ReportSection
+Display Name: 11
+
+  Slicer ID: N/A
+  Visual Type: slicer
+  Orientation: 'Dropdown'
+  Height: 80
+  Width: 304
+  X: 128
+  Y: 624
+  Title: 'slicer title 11'
+  ---
+
+Section Name: a9e726cd535a4a6f1057
+Display Name: 22
+
+  Slicer ID: N/A
+  Visual Type: slicer
+  Orientation: 'Basic'
+  Height: 560
+  Width: 112
+  X: 0
+  Y: 80
+  Title: 'slicer 22'
+  ---
+Press any key to exit...
+
+C:\Users\DON\source\repos\PowerBiMasterData\PowerBiMasterData\bin\Debug\net8.0\PowerBiMasterData.exe (process 23616) exited with code 0 (0x0).
+To automatically close the console when debugging stops, enable Tools->Options->Debugging->Automatically close the console when debugging stops.
+Press any key to close this window . . .

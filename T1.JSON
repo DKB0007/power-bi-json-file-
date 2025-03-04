@@ -1,0 +1,48 @@
+{
+  "DataimportManager": {
+    "tables": [
+      {
+        "id": "T1",
+        "name": "Grade",
+        "columns": [
+          "Parental status",
+          "Student ID",
+          "Number of siblings",
+          "Mother's occupation",
+          "Father's occupation",
+          "Weekly study hours",
+          "Reading frequency",
+          "Attendance to the seminars",
+          "Impact of your projects/activities on your success",
+          "Attendance to classes",
+          "Preparation to midterm exams 1",
+          "Preparation to midterm exams 2",
+          "Taking notes in classes",
+          "Listening in classes",
+          "Flip-classroom",
+          "Cumulative grade last semester",
+          "COURSE ID"
+        ]
+      },
+      {
+        "id": "T2",
+        "name": "Student_Performance",
+        "columns": [
+          "Student ID",
+          "Student Age",
+          "Gender",
+          "Graduated high-school type",
+          "Scholarship Percent",
+          "Additional work",
+          "Sports activity",
+          "Do you have a partner",
+          "Total salary if available USD",
+          "Transportation to the university",
+          "Accommodation type in Cyprus",
+          "Mother's education",
+          "Father's education"
+        ]
+      }
+    ]
+  }
+}

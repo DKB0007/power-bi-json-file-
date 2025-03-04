@@ -1,0 +1,17 @@
+{
+    "dataTransformationManager": {
+      "T7": {
+        "Description": "Create Relationship",
+        "Relationship": {
+          "Name": "AutoDetected_f857a09b-805e-42d7-a061-550c65cf1ee6",
+          "Cardinality": "one",
+          "FromTable": "prateek_class",
+          "FromColumn": "Student_ID",
+          "ToTable": "Grade",
+          "ToColumn": "Student_ID",
+          "JoinOnDateBehavior": "bothDirections"
+        }
+      }
+    }
+  }
+  
